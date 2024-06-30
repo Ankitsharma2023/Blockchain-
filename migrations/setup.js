@@ -1,5 +1,5 @@
 const StellarSdk = require('stellar-sdk');
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
 
 const createTestnetWallet = async () => {
   const pair = StellarSdk.Keypair.random();

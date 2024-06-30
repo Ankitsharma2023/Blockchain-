@@ -1,5 +1,9 @@
-src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/8.2.0/stellar-sdk.min.js"
-tellarSdk.Keypair.random();
+//src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/8.2.0/stellar-sdk.min.js"
+const StellarSdk = require('stellar-sdk')
+//const fetch = require('node-fetch')
+
+const createTestnetWallet = async () => {
+    const pair = StellarSdk.Keypair.random();
     console.log(`Secret: ${pair.secret()}`);
     console.log(`Public: ${pair.publicKey()}`);
 
@@ -10,11 +14,14 @@ tellarSdk.Keypair.random();
     } catch (error) {
       console.error('ERROR!', error);
     }
-  
+};
 
-  async function sendPayment(sourceSecret, destinationPublic, amount) {
+  const sendPayment = async (sourceSecret, destinationPublic, amount) => {
+    const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+    StellarSdk.Network.useTestNetwork();
+
     const sourceKeypair = StellarSdk.Keypair.fromSecret(sourceSecret);
-
+    
     try {
       const account = await server.loadAccount(sourceKeypair.publicKey());
       const transaction = new StellarSdk.TransactionBuilder(account, { fee: StellarSdk.BASE_FEE })
@@ -31,5 +38,11 @@ tellarSdk.Keypair.random();
     } catch (error) {
       console.error('Error sending payment:', error);
     }
+  };
+
+  const main = async ()  => {
+    await createTestnetWallet();
   }
+
+  main()
 

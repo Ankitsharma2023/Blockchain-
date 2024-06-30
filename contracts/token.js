@@ -1,5 +1,5 @@
 const StellarSdk = require('stellar-sdk');
-const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
+const server = new StellarSdk.Horizon.Server('https://horizon-testnet.stellar.org');
 
 // Function to create and issue a token
 const issueToken = async (issuerSecret, receiverPublic, amount) => {
