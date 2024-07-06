@@ -27,8 +27,8 @@ const sendPayment = async () => {
 };
 
 // Replace with actual values
-const sourceSecret = 'SCTAWL7FJVTSYEU52VAQVLGKRATUEP6SJFJWYRNM6EHAQVGACTWSMVZA'; // Replace with actual source secret
-const destinationPublic = 'GDE2HU4MGKCCHX5GJIHW7M33HT7IELLHZAT77XTVVY6F2ROHNLYLHGWX'; // Replace with actual destination public key
-const amount = '10';
+const sourceSecret = 'SD5TGAQRJI4DFZ55BO5GRXDIAMHV6E3B35DG4OXLUDZZICE64GUARI3J'; // Replace with actual source secret
+const destinationPublic = 'GDDKYPP3TAXKXQPVG7MURD24UIEAK2BNOUXBWBIIEDC4YU4S2BQ273CC'; // Replace with actual destination public key
+const amount = '100';
 
 sendPayment();
